@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-petrol-950: #082228;
+  --color-petrol-900: #0c323a;
+  --color-petrol-800: #124550;
+  --color-petrol-700: #1b5a67;
+  --color-ivory: #faf7f0;
+  --color-ivory-dark: #f0ebdf;
+  --color-gold: #b39257;
+  --color-gold-dark: #7d6127;
+  --color-ink: #1c2b2f;
+  --color-muted: #55646a;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: var(--color-ivory); color: var(--color-ink); font-family: var(--font-sans); overflow-x: hidden; }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 4px; }
+
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.hero-in { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .hero-in { opacity: 1; transform: none; animation: none; transition: none; }
+  * { transition-duration: .01ms !important; }
+}
